@@ -1,0 +1,94 @@
+---
+title: "Chapter 2"
+output: html_document
+---
+
+
+## Coding standards in R
+
+1. Use a text editor / save as text file.
+2. Indent your code (4-8 spaces recommended).
+3. Limit the width (approx. 80 columns recommended).
+4. Limit the length of individual functions. Ideally each function's code should be able to fit onto a single screen - this helps for readability and for debugging.
+
+## Refresher on literate programming
+
+The idea of literate programming comes from Don Knuth, Stanford.
+
+How do I make my analysis reproducible? By deciding to do so and making efforts from the beginning.
+- Store data in publicly available formats e.g. csv.
+- Having entire pipeline stored in reproducible code means you have a regression test for your analysis - if it cannot be re-run with the same results then you know you have introduced an error.
+
+Cons: can slow down the process by which you build a document. Can be hard to search through length code files to find explanatory text.
+
+## Knitr
+
+Good for
+
+- Manuals
+- Tutorials
+- Reports
+
+Not good for
+
+- Long research articles with highly complex analysis - can be confusing to edit the documents.
+- Work where complex / time-consuming computations are required.
+
+### Processing of knitr documents
+
+1. Write in Rmd
+2. knitr produces markdown doc
+3. knitr converts markdown to html
+
+Never edit the md or html files.
+
+#### Options
+
+echo = FALSE  - doesn't show the code used to create output
+results = "hide" - hides the output.
+
+Using inline computations
+
+```{r computetime}
+time <- format(Sys.time(), "%a %b %d %X %Y")
+rand <- rnorm(1)
+```
+
+The time this document was generated is `r time`. A random number is `r rand`.
+
+#### Images / figures
+
+These are included as raw data: inline in the html rather than links to the files - this is great in that the html exists as a standalone file.
+
+#### Setting global options
+
+Create a separate code chunk at the start of the document, and us `opts_chunk$set`. e.g.
+
+```{r setoptions}
+library(knitr)
+opts_chunk$set(echo = FALSE)
+```
+
+#### Now we run more code to demonstrate it won't be echoed.
+```{r printsomething}
+print("Hello")
+```
+
+#### Useful common options
+
+Output
+
+- Results: "hide" / "asis"
+- echo: T/F
+
+Figures
+
+- fig.height: numeric
+- fig.width: numeric
+
+#### Caching computations
+
+Useful when one chunk takes a long time to run. 
+
+Set `cache=T` to store results of computations on the disk for processing next time around.
+If data / code or anything external changes, you'll have to run again, of course.

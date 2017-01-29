@@ -6,3 +6,4 @@ output: html_document
 A writeup of notes from the Johns Hopkins / Coursera course on reproducible research.
 
 - [Chapter 1](Chapter 1.Rmd)
+- [Chapter 2](Chapter 2.Rmd)
