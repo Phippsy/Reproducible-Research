@@ -78,7 +78,7 @@ print("Hello")
 
 Output
 
-- Results: "hide" / "asis"
+- Results: "hide" / "asis". asis avoids applying html formatting to any r output.
 - echo: T/F
 
 Figures
