@@ -1,15 +1,15 @@
 ---
 title: "Week 1 - Introduction"
-output: html_notebook
+output: html_document
 ---
 
-### Why do we need reproducible research?
+## Why do we need reproducible research?
 
 - To bridge the gap between replication and nothing. We make available the data from studies, share our methods of analysis and allow others to validate / investigate our methods.
 - This allows peers to at least validate thedata analysis, if not the study data. This gives confidence that correct analysis methods were used.
 - Methods used / computational power have become a lot more sophisticated, meaning the analyses are more complex.
 
-### Research Pipeline
+## Research Pipeline
 ![Pipeline pic](img/pipeline.png)
 
 ## What do we need for reproducible research?
@@ -19,7 +19,7 @@ output: html_notebook
 - Documentation of code and data (e.g. codebook)
 - Standard means of distribution
 
-#### Interested parties
+## Interested parties
 
 - Authors: produce research. Want tools to make their lives easier.
 - Readers: want to read the work, need tools to make reading easier.
@@ -38,7 +38,7 @@ It requires:
 - A documentation language (human readable)
 - A programming language (machine readable)
 
-### Sweave - an early language in R, uses latex and R.
+## Sweave - an early language in R, uses latex and R.
 
 #### Limitations
 
@@ -46,10 +46,10 @@ It requires:
 - Lacks caching, multiple plots per page
 - Not actively developed
 
-### Knitr
+## Knitr
 
 - Developed by Yihui Xie whilst a grad student.
-- Uses R, LATEX, Markdown and htmls
+- Uses R, LATEX, Markdown and html
 
 ## Scripting your analysis
 
@@ -59,7 +59,7 @@ It requires:
 
 #### 1) Define the question
 
-1. Have a scientific context general question
+1. Have a scientific context / general question
 2. Have a generally stated question and valid data
 3. Apply appropriate statistical method to the data.
 
@@ -145,3 +145,40 @@ e.g.: "The fraction of characters that are dollars signs can be used to predict 
 - Include 'pretty' figures that contribute to the story.
 
 #### 11) Create reproducible code
+
+## Organising a data analysis
+
+### Data analysis files
+
+#### Data
+
+- raw data: should be stored in analysis folder, include clear sources / write-up of where the data came from. If possible, add raw data to git repo. Include url, description and date accessed in README.
+- processed data: Should be tidy. Name so it's easy to see which script generated the data. Processing script steps should be documented in the README.
+
+#### Figures
+
+- Exploratory: made during course of analysis, don't need to be 'pretty'.
+- Final: Usually a subset of original figures. May have multiple panels. Need to be very clear andd self-explanatory.
+
+#### R code
+
+- Raw / unused scripts: may be less commented / multiple versions. May include analyses that are later discarded.
+- Final scripts
+  - Clearly commented.
+  - Big comment blocks for whole sections.
+  - Include processing details.
+  - Only analyses that appear in final write-up.
+- R Markdown files: to generate reproducible reports, text and code are integrated.
+
+#### Text
+
+- README files: should contain step-by-step instructions for analysis. May not be necessary if you don't use R markdown.
+- Text of analysis / report
+  - Tells the final story.
+  - Sections:
+    - Title
+    - Introduction / questions to answer
+    - Motivation for running analysis
+    - Method used
+    - Results
+  - Conclusions
